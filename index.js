@@ -1,0 +1,1 @@
+var frutas = ['Maçã', 'Banana', ''];
