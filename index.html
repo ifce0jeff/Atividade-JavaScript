@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Map</h2>
+<p>
+Clique no botão para obter a raiz quadrada de cada elemento na matriz.</p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo1"></p>
+
+
+<h2>Classe e Herança de Classe</h2>
+<p id="demo2"></p>
+
+
+<h2>Método Estático</h2>
+<p>Um método estático é criado com a palavra-chave "estática" e você só pode chamar o método na própria classe.</p>
+<p id="demo3"></p>
+
+<h2>Arrow Function</h2>
+<p>Este exemplo mostra a estrutura de uma Arrow Function </p>
+<p id="demo4"></p>
+
+<h2>Método de objeto .hasOwnProperty</h2>
+<p>Exemplo no códico</p>
+<p id="demo5"></p>
+
+<h2>Template Literals</h2>
+<p>Abra o Console, a resposta está la</p>
+<p id="demo6"></p>
+
+<h2>try...catch</h2>
+<p>Insira um número entre 5 e 10:</p>
+<input id="demo7" type="text">
+<button type="button" onclick="myFunction()">Test Input</button>
+<p id="tc"></p>
+
+<h2>Prototype</h2>
+<p id="demo8"></p>
+
+<h2>Objeto</h2>
+<p id="demo9"></p>
+
+<script>
+
+//map
+
+var numbers = [4, 9, 16, 25];
+
+function myFunction() {
+  x = document.getElementById("demo1")
+  x.innerHTML = numbers.map(Math.sqrt);
+}
+
+// classe e herança
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'Eu tenho um ' + this.carname;
+  }
+}
+
+class Model extends Car {
+  constructor(brand, mod) {
+    super(brand);
+    this.model = mod;
+  }
+  show() {
+    return this.present() + ', e um ' + this.model;
+  }
+}
+
+mycar = new Model("Ford", "Mustang");
+document.getElementById("demo2").innerHTML = mycar.show();
+
+//Metodo estático
+
+class Car2 {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  static hello() {
+    return "Ola Dev Web";
+  }
+}
+
+mycar = new Car2("Ford");
+
+document.getElementById("demo3").innerHTML = Car2.hello();
+
+//Arrow Function
+
+var DevWeb;
+
+DevWeb = () => {
+  return "Olá Dev Web Novamente";
+}
+
+document.getElementById("demo4").innerHTML = DevWeb();
+
+//Método de objeto .hasOwnProperty
+
+var a = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'teste'
+};
+a.hasOwnProperty('bar');
+({}).hasOwnProperty.call(a, 'bar');
+Object.prototype.hasOwnProperty.call(a, 'bar');
+
+//Template Literals
+
+let nome = 'jeff';
+console.log('${nome}');
+
+//try...catch
+
+function myFunction() {
+  var tc, x;
+  tc = document.getElementById("tc");
+  tc.innerHTML = "";
+  x = document.getElementById("demo7").value;
+  try {
+    if(x == "") throw "vazia";
+    if(isNaN(x)) throw "não é um numero";
+    if(x > 10) throw "alta";
+    if(x < 5) throw "baixa";
+  }
+  catch(err) {
+    tc.innerHTML = "Entrada " + err;
+  }
+}
+
+//Prototype
+
+function Person(first, last, age, eye) {
+  this.Pnome = first;
+  this.Snome = last;
+  this.idade = age;
+  this.CorOlho = eye;
+}
+
+Person.prototype.nationality = "Brasil";
+
+var myFather = new Person("Evandro", "Silva", 50, "Castanho");
+document.getElementById("demo8").innerHTML =
+"A nacionalidade do meu pai é " + myFather.nationality;
+
+//objeto
+
+var pai = {
+  PName: "Evandro",
+  SName: "Silva",
+  Idade: 50,
+  CorOlho: "Castanho"
+};
+
+document.getElementById("demo9").innerHTML =
+pai.PName + " tem " + pai.Idade + " anos";
+
+</script>
+
+</body>
+</html>
